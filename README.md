@@ -1,7 +1,6 @@
 # SnakeGame
 Source URL : https://www.pygame.org/project/3314
 
-Timer: https://gist.github.com/Ashwinning/313a4bed6af3f7599ac168c4de82b555
 
 The goal of this snake game is to improve upon the previously created snake game by Chuyang Liu. I will be adding on more features and optimizing the game entirely to the best of my abilities. Changes may include a timer option, background music, possibly interactive mode, etc. Overall, I hope to put forth a decent game that anyone can just enjoy in their downtime.
 
@@ -34,4 +33,6 @@ x Add background music
 
 x Change color option for user
 
-x Play again or quit option when user loses
+x High-score counter
+
+x Play again fits and works on screen of end screen
