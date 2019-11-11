@@ -98,7 +98,7 @@ class game():
                     sys.exit()
             for x in self.blocks:
                 self.screen.blit(x[0],x[1])
-            txts = pg.font.SysFont('Courier New',50).render('YOU LOST    Score:',True,(255,255,255))
+            txts = pg.font.SysFont('Courier New',50).render('Game Over!    Score: ',True,(255,255,255))
             txtrect = txts.get_rect()
             txtrect.topleft =(20,150)
             self.screen.blit(txts,txtrect)
@@ -107,7 +107,7 @@ class game():
             txtrect.topleft =(600,150)
             self.screen.blit(txts,txtrect)
             pg.display.update()
-            self.make_button((255,300,100,50),'Start Over', [(255,255,255),(150,150,150)], action = lambda:restart())
+            self.make_button((255,300,130,80),'Start Over', [(255,255,255),(150,150,150)], action = lambda:restart())
             if self.hover ==True:
                 click = pg.mouse.get_pressed()
                 if click[0] == 1:
