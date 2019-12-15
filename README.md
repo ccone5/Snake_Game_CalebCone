@@ -10,7 +10,7 @@ The goal of this snake game is to improve upon the previously created snake game
 
 ✓ Collect info on exisiting Snake Game
 
-x Research how to add-in timer, background music and other possible features
+✓ Research how to add-in timer, background music and other possible features
 
 x Successfully implement features
 
@@ -31,8 +31,8 @@ x Add timer into game
 
 ✓ Add background music
 
-x Change color option for user
+✓ Change colors brighter
 
 x High-score counter
 
-x Play again fits and works on screen of end screen
+✓ Play again fits and works on screen of end screen
