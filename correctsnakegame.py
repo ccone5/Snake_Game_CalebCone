@@ -284,7 +284,7 @@ class startmenu():
     def mainloop(self):
         while 1:
             self.screen.fill((0,0,255))
-            self.make_text(400, 150, 'WORM GAME', color = (255,255,255), size = 150, a = True)
+            self.make_text(410, 150, 'Snake GAME', color = (255,255,255), size = 100, a = True)
             for event in pg.event.get():
                 if event.type == pg.QUIT:
                     sys.exit()
@@ -365,4 +365,5 @@ def menu():
     m = startmenu()
     m.mainloop()
 menu()
+
 
