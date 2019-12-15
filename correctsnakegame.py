@@ -1,13 +1,6 @@
 import pygame
-import time
-import random
 import pygame as pg
 import sys,random
-pygame.init()
-
-crash_sound = pygame.mixer.Sound("crash.wav")
-pygame.mixer.music.load('jazz.wav')
-pygame.mixer.music.play(-1)
 def collide(x1,y1,x2,y2,x3,y3,x4,y4):
     if (x3+x4) > x1 > x3 and (y3+y4) > y1 > y3 or (x3+x4) > x2 >x3 and (y3+y4) > y2 > y3:
         return True
@@ -334,6 +327,16 @@ class startmenu():
         start(2, self.size)
     def exit(self):
         sys.exit()
+ARRAY_SIZE = 50
+pygame.init()
+s = pygame.display.set_mode((ARRAY_SIZE * 10, ARRAY_SIZE * 10))
+appleimage = pygame.Surface((10, 10))
+appleimage.fill((0, 255, 0))
+img = pygame.Surface((10, 10))
+img.fill((255, 0, 0))
+clock = pygame.time.Clock()
+
+pygame.time.set_timer(1, 100) 
 def start(speed,size):
     global g,m
     del m
@@ -350,4 +353,3 @@ def menu():
     m = startmenu()
     m.mainloop()
 menu()
-
