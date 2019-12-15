@@ -1,3 +1,5 @@
+import pickle
+import pygame
 import pygame as pg
 import sys,random
 def collide(x1,y1,x2,y2,x3,y3,x4,y4):
@@ -19,7 +21,7 @@ class snake():
     def __init__(self,speed, size):
         self.pos = [20,20]
         self.image = pg.Surface((10*size,10*size))
-        self.image.fill((0,255,0))
+        self.image.fill((51,255,51))
         self.speed = speed
         self.size = size
         self.images = []
@@ -55,7 +57,7 @@ class snake():
     def add_apple(self):
         self.score +=1
         block = pg.Surface((10*self.size,10*self.size))
-        block.fill((0,255,0))
+        block.fill((55,255,55))
         self.images.append([block,[10,10]])
 class apple():
     def __init__(self,size):
@@ -152,7 +154,7 @@ class game():
             color.a = 0
             self.hover = False
         rectangle.fill(color,special_flags=pg.BLEND_RGBA_MAX)
-        rectangle.fill((255,200,255, alpha),special_flags=pg.BLEND_RGBA_MIN)   
+        rectangle.fill((255,200,200, alpha),special_flags=pg.BLEND_RGBA_MIN)   
         self.screen.blit(rectangle,pos)
         txts = pg.font.SysFont('Courier New',textsize).render(text,True,(0,0,0))
         txtrect = txts.get_rect()
@@ -163,7 +165,7 @@ class game():
     def loop(self):
         self.game_over = False
         while self.game_over != True:
-            self.screen.fill((35,38,117))
+            self.screen.fill((0,0,255))
             self.snake.update()
             for x in self.blocks:
                 if self.snake.check_collisions(x[1]) == True:
@@ -281,8 +283,8 @@ class startmenu():
         self.make_text((pos[0]+pos[2]/2), (pos[1]+pos[3]/2), text, a = True, size=textsize)
     def mainloop(self):
         while 1:
-            self.screen.fill((35,38,117))
-            self.make_text(400, 150, 'WORM GAME', color = (255,255,255), size = 150, a = True)
+            self.screen.fill((0,0,255))
+            self.make_text(410, 150, 'Snake GAME', color = (255,255,255), size = 100, a = True)
             for event in pg.event.get():
                 if event.type == pg.QUIT:
                     sys.exit()
@@ -326,6 +328,27 @@ class startmenu():
         start(2, self.size)
     def exit(self):
         sys.exit()
+ARRAY_SIZE = 50
+pygame.init()
+s = pygame.display.set_mode((ARRAY_SIZE * 10, ARRAY_SIZE * 10))
+appleimage = pygame.Surface((10, 10))
+appleimage.fill((0, 255, 0))
+img = pygame.Surface((10, 10))
+img.fill((255, 0, 0))
+clock = pygame.time.Clock()
+
+try:
+    with open('score.dat', 'rb') as file:
+        score = pickle.load(file)
+except:
+    score = 0
+
+print("High score: ") 
+
+with open('score.dat', 'wb') as file:
+    pickle.dump(score, file)
+
+pygame.time.set_timer(1, 100) 
 def start(speed,size):
     global g,m
     del m
